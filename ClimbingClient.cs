@@ -56,7 +56,7 @@ namespace RestCSharp
             HttpResponseMessage climbingLogResponse = await httpClient.PostAsJsonAsync("api/", climbingLogRequest);
             if (!climbingLogResponse.IsSuccessStatusCode)
             {
-                throw new Exception("Failed to add logg");
+                Console.WriteLine("Failed to add logg, try again");
 
             }
 
@@ -75,10 +75,11 @@ namespace RestCSharp
             HttpResponseMessage climbingLogResponse = await httpClient.DeleteAsync($"api/{id}");
             if (!climbingLogResponse.IsSuccessStatusCode)
             {
-                throw new Exception("Failed to delete logg");
+                Console.WriteLine("Sorry, failed to delete logg. Try again");
 
             }
-            else{
+            else
+            {
                 Console.WriteLine("Log deleted!");
             }
 
@@ -106,7 +107,7 @@ namespace RestCSharp
             }
             else
             {
-                throw new Exception("Failed to login");
+                Console.WriteLine("\n\nSorry, you failed to log in, try again\n\n");
             }
         }
         //This function loggs out the user. It then sets the default authorixation header to null, 
@@ -125,6 +126,15 @@ namespace RestCSharp
             registerRequest.userName = username;
             registerRequest.password = password;
             HttpResponseMessage registerResponse = await httpClient.PostAsJsonAsync("auth/signup", registerRequest);
+            if (registerResponse.IsSuccessStatusCode == false)
+            {
+                Console.WriteLine("\n\nSorry The registration could not proceed. All required input must be set,\n username and password must contain at least 6 characters!\n");
+            }
+            else
+            {
+                Console.WriteLine("\n\nThe registration was sucessfull\n\n");
+
+            }
         }
 
         //This fucntion is to check if user is logged in. It returns a boolean (true/false)

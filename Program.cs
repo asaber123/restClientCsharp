@@ -29,7 +29,6 @@ namespace RestCSharp
             Console.Write("Password: ");
             string password = Console.ReadLine();
             await client.Login(username, password);
-            Console.WriteLine("Login successful");
         }
         //This function takes users input and send it into the function Register in class ClimbingClient. 
         static void register(ClimbingClient client)
@@ -43,7 +42,6 @@ namespace RestCSharp
             Console.Write("Password: ");
             string password = Console.ReadLine();
             client.Register(fullname, username, password);
-            Console.WriteLine("Register successful");
         }
         //This fucnctipn activate the logoutUser fnction in class ClimbingClient
         static void logout(ClimbingClient client)
@@ -66,6 +64,7 @@ namespace RestCSharp
             {
                 foreach (ClimbingRoute route in routes)
                 {
+                    Console.WriteLine(route.typeOfRoute);
                     Console.WriteLine($"Route name: {route.name}\n");
                     Console.WriteLine($"Route grade: {route.grade}\n");
                     Console.WriteLine($"Route location: {route.location}\n");
