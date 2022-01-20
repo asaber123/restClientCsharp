@@ -80,6 +80,7 @@ namespace RestCSharp
         //If user is sucessfully stored, then a message is shown to the user, saying that logg is added. 
         static void addlog(ClimbingClient client)
         {
+
             Console.Write("Add a new logg\n\n");
             Console.CursorVisible = true;
             Console.Write("Name of the route: ");
@@ -114,7 +115,7 @@ namespace RestCSharp
             //Making an instance of the class ClimbingClient. 
             var client = new ClimbingClient();
             //This always runns when nothing else runns. 
-            while (true)
+           do 
             {
                 //Checking if user is logged in through the function "isLoggedIn" which returns true if user is logged in. 
                 //The first menu is shown when user is not logged in. 
@@ -186,7 +187,7 @@ namespace RestCSharp
                             break;
                     }
                 }
-            }
+            }while (Console.ReadKey().Key == ConsoleKey.Enter);
         }
     }
 }

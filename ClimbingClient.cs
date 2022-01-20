@@ -103,7 +103,7 @@ namespace RestCSharp
                 authToken = loginResponse.Headers.GetValues("auth-token").FirstOrDefault();
                 //Set auth token to client so that we are authorized from now on.
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
-
+                Console.WriteLine("\n\nYou logged in sucessfully! Press enter to come to new menu\n\n");
             }
             else
             {
@@ -115,6 +115,7 @@ namespace RestCSharp
         public async void logoutUser()
         {
             httpClient.DefaultRequestHeaders.Authorization = null;
+            Console.WriteLine("\n\n You logged out, press enter to go to mennu\n\n");
         }
         //This function register a new user. A new class has been made "RegisterRequest" that stores the values that is required for the registration request
         //An instance of the class is made and then the values from the arguments in the functions is set into the class. 
