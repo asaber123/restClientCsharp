@@ -83,9 +83,9 @@ namespace RestCSharp
         {
             Console.Write("Add a new logg\n\n");
             Console.CursorVisible = true;
-            Console.Write("Name of the route");
+            Console.Write("Name of the route: ");
             string name = Console.ReadLine();
-            Console.Write("Grade:");
+            Console.Write("Grade: ");
             string grade = Console.ReadLine();
             Console.Write("Indoor or outdoor?: ");
             string location = Console.ReadLine();
@@ -93,7 +93,7 @@ namespace RestCSharp
             string typeOfRoute = Console.ReadLine();
 
             client.addClimbinglog(grade, name, location, typeOfRoute);
-            Console.WriteLine("Logg is added!");
+            Console.WriteLine("\n\nLogg is added!\n\n");
         }
         //This fucntion ask user to enter the id of the log that the user want to delete. 
         //Then it takes the users input and send it into the function "deleteClimbingLog" i klassen ClimbingClient

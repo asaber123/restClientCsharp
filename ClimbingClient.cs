@@ -59,9 +59,7 @@ namespace RestCSharp
                 throw new Exception("Failed to add logg");
 
             }
-            else{
-                Console.WriteLine("Logg is added!");
-            }
+
         }
         //This function deletes a climbing log and takes an id as argument. 
         //It first chekcs if authorization header is present, if not an error message will be shown. 
